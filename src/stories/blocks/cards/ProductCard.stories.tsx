@@ -8,7 +8,7 @@ export default {
 export const Default = () => {
   return (
     <div className="grid grid-cols-4">
-      <ProductCard />
+      {/* <ProductCard /> */}
     </div>
   );
 };
