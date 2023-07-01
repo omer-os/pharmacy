@@ -6,10 +6,13 @@ import Button from "@components/elements/button/Button";
 import { useParams } from "next/navigation";
 import React from "react";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { useClient } from "../layout/ClientWrapper";
 
 export default function CategoryItemPage() {
   const slug = useParams()?.product;
   const itemData = getItemBySlug(slug);
+
+  const { setCartData, CartData } = useClient();
 
   return (
     <div className="flex gap-10 md:flex-row flex-col">
@@ -50,7 +53,14 @@ export default function CategoryItemPage() {
           </div>
 
           <div className="flex flex-wrap sm:flex-row flex-col  gap-4 mt-20">
-            <Button className="min-w-[10em] sm:w-max w-full">
+            <Button
+              onClick={() => {
+                if (itemData) {
+                  setCartData([...CartData, itemData]);
+                }
+              }}
+              className="min-w-[10em] sm:w-max w-full"
+            >
               <HiOutlineShoppingCart />
               اضافة الى السلة
             </Button>

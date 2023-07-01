@@ -20,11 +20,6 @@ export default function ProductCard({
   return (
     <AnimateOneDir delay={delay}>
       <Link href={link || "/"} className="flex flex-col relative">
-        {type === "subcategory" ? (
-          <div className="asbolute z-10 bg-primary/20 text-primary border-primary border">
-            صنف فرعي
-          </div>
-        ) : null}
         <div className="img rounded-lg h-[12em]">
           <img
             src={img}

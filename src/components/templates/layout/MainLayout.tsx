@@ -12,7 +12,7 @@ export default function MainLayout({
       <MainNav />
       {/* <MainSideBar /> */}
       {/* sm:pr-[21em] */}
-      <div className="px-4 py-4 max-w-6xl mx-auto">{children}</div>
+      <div className="px-4 py-4 pb-14 max-w-6xl mx-auto">{children}</div>
     </div>
   );
 }
