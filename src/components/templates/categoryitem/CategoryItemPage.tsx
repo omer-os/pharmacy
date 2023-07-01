@@ -1,16 +1,22 @@
+"use client";
 import AnimateOneDir from "@/components/animations/simple/AnimateOneDir";
 import GoBack from "@/components/elements/button/GoBack";
+import { getItemBySlug } from "@/db";
 import Button from "@components/elements/button/Button";
+import { useParams } from "next/navigation";
 import React from "react";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 export default function CategoryItemPage() {
+  const slug = useParams()?.product;
+  const itemData = getItemBySlug(slug);
+
   return (
     <div className="flex gap-10 md:flex-row flex-col">
       <AnimateOneDir direction="left">
-        <div className="img sm:min-w-[30em] md:h-[35em] h-[20em] rounded-lg">
+        <div className="img md:w-[30em] md:h-[35em] h-[20em] rounded-lg">
           <img
-            src="https://domf5oio6qrcr.cloudfront.net/medialibrary/13833/46dce299-d88d-4712-b708-c27227d238b8.jpg"
+            src={itemData?.img || ""}
             alt=""
             className="w-full h-full object-cover rounded-lg"
           />
@@ -19,13 +25,8 @@ export default function CategoryItemPage() {
       <div className="flex flex-col min-h-max">
         <AnimateOneDir delay={0.1}>
           <GoBack />
-          <div className="font-bold text-3xl mt-3">مسترخي الاعصاب</div>
-          <div className="text-zinc-400 text-sm mt-4">
-            استمتع بلحظات من الاسترخاء وتهدئة الأعصاب مع مسترخي الأعصاب العشبي.
-            تم تصميم هذا المنتج بعناية لتوفير الدعم الطبيعي للجهاز العصبي وتخفيف
-            التوتر والقلق. استمتع بمزيج فريد من الأعشاب الهادئة التي تساعد في
-            تحقيق الاسترخاء العميق وتعزيز الهدوء الداخلي
-          </div>
+          <div className="font-bold text-3xl mt-3">{itemData?.name}</div>
+          <div className="text-zinc-400 text-sm mt-4">{itemData?.subtitle}</div>
 
           <div className="mt-6">
             <table>

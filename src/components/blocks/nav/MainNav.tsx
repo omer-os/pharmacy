@@ -12,10 +12,12 @@ export default async function MainNav() {
         </Link>
 
         <div>
-          <Button>
-            <HiOutlineShoppingCart />
-            سلة المشتريات
-          </Button>
+          <Link passHref href="/cart">
+            <Button>
+              <HiOutlineShoppingCart />
+              سلة المشتريات
+            </Button>
+          </Link>
         </div>
       </nav>
     </header>

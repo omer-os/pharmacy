@@ -29,7 +29,7 @@ export default async function page({
           <ProductCard
             delay={index * 0.1}
             key={index}
-            title={item.name + item._type || ""}
+            title={item.name || ""}
             description={item.subtitle || ""}
             img={item.img}
             link={`/product/${item.slug}`}

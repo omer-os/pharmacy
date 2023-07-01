@@ -1,4 +1,5 @@
 "use client";
+import { Item } from "@/db";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 /**
@@ -12,6 +13,8 @@ interface ClientContextType {
   enableBrowserBack: () => void;
   isSidebarOpen: boolean;
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  CartData: Item[];
+  setCartData: React.Dispatch<React.SetStateAction<Item[]>>;
 }
 
 const ClientContext = createContext<ClientContextType | undefined>(undefined);
@@ -84,6 +87,7 @@ const handlePopState = (event: PopStateEvent) => {
  */
 export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [CartData, setCartData] = useState<Item[]>([]);
 
   useEffect(() => {
     return () => {
@@ -100,6 +104,8 @@ export const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
         enableBrowserBack,
         isSidebarOpen,
         setSidebarOpen,
+        CartData,
+        setCartData,
       }}
     >
       {children}
