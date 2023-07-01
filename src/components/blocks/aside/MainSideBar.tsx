@@ -21,11 +21,11 @@ export default function MainSideBar({ className }: MainSideBarProps) {
         `fixed max-h-screen h-full top-0 bg-background-foreground  min-w-[20em]  sm:w-2/12 w-full 
         
         rtl:data-[open=true]:right-0
-        rtl:data-[open=false]:-right-full
+        rtl:data-[open=false]:-right-[100vw]
         rtl:sm:!right-0
 
         ltr:data-[open=true]:left-0
-        ltr:data-[open=false]:-left-full
+        ltr:data-[open=false]:-left-[100vw]
         ltr:sm:!left-0
         
         
