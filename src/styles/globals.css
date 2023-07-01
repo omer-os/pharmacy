@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gridItems {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(20em, 1fr));
+  grid-gap: 1em;
+}
