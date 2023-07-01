@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "@components/elements/button/Button";
 import { FiArrowLeft } from "react-icons/fi";
 import GoBack from "@/components/elements/button/GoBack";
+import { db } from "@/db";
 
 export default async function page({
   params,
@@ -12,10 +13,7 @@ export default async function page({
     category: string;
   };
 }) {
-  const res = await fetch("http://localhost:3000/db.json");
-  const data: Database = await res.json();
-
-  const SelectedCategory = data.categories.find(
+  const SelectedCategory = db.categories.find(
     (category) => category.slug === params.category
   );
 
