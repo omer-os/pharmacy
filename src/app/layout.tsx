@@ -1,3 +1,5 @@
+import { ClientWrapper } from "@/components/templates/layout/ClientWrapper";
+import MainLayout from "@/components/templates/layout/MainLayout";
 import "@styles/globals.css";
 import { Inter } from "next/font/google";
 
@@ -14,8 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html dir="rtl" lang="en">
+      <body
+        className={inter.className + " bg-background text-background-content"}
+      >
+        <ClientWrapper>
+          <MainLayout>{children}</MainLayout>
+        </ClientWrapper>
+      </body>
     </html>
   );
 }
